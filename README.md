@@ -1,4 +1,4 @@
-# 🚀 Midudevs React Course
+# 🚀 Curso de React de Midudev
 
 Repositorio centralizando **todos mis proyectos y prácticas** del curso de React de Midudev.
 
