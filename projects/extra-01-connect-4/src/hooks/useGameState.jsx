@@ -29,10 +29,6 @@ export const useGameState = (
     resetGameStorage();
   };
 
-  const getColumn = (columns, index) => {
-    return index % columns;
-  };
-
   const getInsertPos = (board, rows, columns, columnToInsert) => {
     for (let r = rows - 1; r >= 0; r--) {
       let index = r * columns + columnToInsert;
@@ -46,7 +42,7 @@ export const useGameState = (
   const updateBoard = (index) => {
     // TODO: desarrollar lógica para detectear las columnas y no la posición exacta, para insertar al final de la columna clickeada el elemento.
 
-    const columnToInsert = getColumn(BOARD_SIZE.columns, index);
+    const columnToInsert = index % BOARD_SIZE.columns;
 
     const indexToInsert = getInsertPos(
       board,
@@ -57,7 +53,6 @@ export const useGameState = (
 
     // No se actualiza la posición si tiene algo
     if (indexToInsert === -1 || winner) return;
-    console.log('se actualiza posicion');
 
     // Actualizar el tablero
     const newBoard = [...board];
@@ -70,7 +65,6 @@ export const useGameState = (
     setTurn(newTurn);
 
     // Guardar acá partida
-    // TODO: poner la función del modulo "storage/index.js" para guardar
     saveGame({ board: newBoard, turn: newTurn });
 
     // Revisar si hay un ganador

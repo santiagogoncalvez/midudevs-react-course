@@ -80,6 +80,17 @@ body {
   gap: 10px;
 }
 
+.board .columnIndicator{
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+
+.board .columnIndicator .square {
+  border: 0px solid;
+  cursor: default;
+}
+
 .turn {
   display: flex;
   justify-content: center;
@@ -144,3 +155,5 @@ body {
   cursor: pointer;
   font-size: 48px;
 }
+
+

@@ -18,6 +18,9 @@ function App() {
     <main className="board">
       <h1>Connect 4</h1>
 
+      {/** 
+       * TODO:  */}
+
       <StartAgainButton resetGame={resetGame}>
         Empezar de nuevo
       </StartAgainButton>
