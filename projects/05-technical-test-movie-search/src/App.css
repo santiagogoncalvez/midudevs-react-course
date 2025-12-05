@@ -37,6 +37,33 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  gap: 25px;
+}
+
+.form .checkbox{
+  margin: 0;
+}
+
+.form .searchContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.searchInput{
+  margin: 0;
+}
+
+.searchButton{
+  margin: 0;
+  width: fit-content;
+  height: fit-content;
+  padding: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .movies {
@@ -52,7 +79,7 @@ main {
 
 .movies li {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   flex-direction: column;
   width: 100%;

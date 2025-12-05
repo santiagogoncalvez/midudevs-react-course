@@ -1,10 +1,10 @@
 import Movies from './components/Movies.jsx';
 import { useMovies } from './useMovies.js/useMovies.js';
 import { useSearch } from './useMovies.js/useSearch.js';
-import {  useState } from 'react';
+import { useState, useMemo } from 'react';
 import debounce from 'just-debounce-it';
 import './App.css';
-import { useMemo } from 'react';
+import { HiMagnifyingGlass } from 'react-icons/hi2';
 
 function App() {
   const [sort, setSort] = useState(false);
@@ -41,18 +41,24 @@ function App() {
       <header className="header">
         <h1>Buscador de películas</h1>
         <form className="form" onSubmit={handleSubmit}>
-          <input
-            value={search}
-            name="query"
-            type="text"
-            placeholder="Avengers, Star Wars, The Matrix..."
-            onChange={handleChange}
-          />
+          <div className="searchContainer">
+            <input
+              className="searchInput"
+              value={search}
+              name="query"
+              type="text"
+              placeholder="Avengers, Star Wars, The Matrix..."
+              onChange={handleChange}
+            />
+            <button className="searchButton" type="submit">
+              <HiMagnifyingGlass size={25}/>
+            </button>
+          </div>
+
           <label>
-            <input type="checkbox" onChange={handleSort} checked={sort} />
+            <input className='checkbox' type="checkbox" onChange={handleSort} checked={sort} />
             &nbsp; Ordenar por título &#40;A-Z&#41;
           </label>
-          <button type="submit">Buscar</button>
         </form>
         {error && <p style={{ color: '#DA7CFF' }}>{error}</p>}
       </header>
