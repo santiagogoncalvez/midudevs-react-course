@@ -29,7 +29,7 @@ function Cart() {
       <label htmlFor={cartCheckboxId} className="cart-button">
         <CartIcon />
       </label>
-      <input type="checkbox" id={cartCheckboxId} hidden />
+      <input type="checkbox" id={cartCheckboxId} hidden className='checkbox'/>
 
       <aside className="cart">
         <ul>

@@ -1,6 +1,6 @@
-import './Products.css';
 import { AddToCartIcon, RemoveFromCartIcon } from '../components/Icons.jsx';
 import { useCart } from '../hooks/useCart.js';
+import './Products.css';
 
 const upperFirst = (str) => str[0].toUpperCase() + str.slice(1);
 
@@ -26,7 +26,7 @@ function Products({ products }) {
                 <span>{upperFirst(product.category)}</span>
               </div>
               <div>
-                <button style={{background: isProductInCart ? 'red' : '#09f'}}
+                <button style={{background: isProductInCart ? 'red' : ''}}
                   onClick={() => {
                     isProductInCart
                       ? removeFromCart(product)

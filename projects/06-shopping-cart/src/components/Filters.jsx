@@ -1,6 +1,6 @@
 import { useId } from 'react';
-import './Filters.css';
 import { useFilters } from '../hooks/useFilters';
+import './Filters.css';
 
 function Filters() {
   const { filters, setFilters } = useFilters();

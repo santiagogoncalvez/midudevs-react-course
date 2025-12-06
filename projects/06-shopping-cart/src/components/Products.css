@@ -6,11 +6,12 @@
 }
 
 .products ul {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(
     auto-fit,
     minmax(
-      200px,
+      250px,
       1fr
     )
   );
@@ -20,11 +21,12 @@
 .products li {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1rem;
-  box-shadow: 0 0 10px 10px rgba(0, 0, 0, .1);
+  box-shadow: 0 0 10px 10px rgba(161, 161, 161, 0.1);
   border-radius: 4px;
-  background: #111;
-  color: #fff;
+  /* background: #111; */
+  /* color: #fff; */
   padding: 1rem;
 }
 
@@ -43,5 +45,5 @@
   aspect-ratio: 16/9;
   display: block;
   object-fit: cover;
-  background: #fff;
+  /* background: #fff; */
 }

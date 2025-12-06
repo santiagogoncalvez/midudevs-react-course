@@ -1,11 +1,16 @@
 .cart {
-  background: #000;
+  background: rgb(245, 245, 245);
   display: none;
   padding: 32px;
   position: fixed;
   right: 0px;
   top: 0px;
   width: 200px;
+  border-left: 1px solid rgb(230, 220, 230);;
+}
+
+.cart-button ~ .checkbox{
+  display: none ;
 }
 
 .cart img {
