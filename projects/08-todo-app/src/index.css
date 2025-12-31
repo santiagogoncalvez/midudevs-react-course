@@ -1,0 +1,4 @@
+/* Invertir toda la página
+html {
+  filter: invert(100%);
+} */
