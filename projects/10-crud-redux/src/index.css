@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Geist Sans';
+  /* Si renombraste el archivo a Geist.woff2, asegúrate que el nombre sea exacto */
+  src: url('./assets/fonts/Geist.woff2') format('woff2-variations');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@layer base {
+  html {
+    font-family: 'Geist Sans', system-ui, sans-serif;
+  }
+}
