@@ -1,15 +1,9 @@
-
 import { useEffect, useMemo, useRef, useState } from 'react';
 import './App.css';
 import { SortBy, type APIResults, type User, type Users } from './types.d';
 import { UsersList } from './components/UsersList';
-import { Group, Button, TextInput, Title, Stack } from '@mantine/core';
-import {
-  IconSearch,
-  IconRefresh,
-  IconArrowsSort,
-  IconColorPicker,
-} from '@tabler/icons-react';
+import { Title } from '@mantine/core';
+import FilterSortControls from './components/FilterSortControls';
 
 function App() {
   const [users, setUsers] = useState<Users>([]);
@@ -36,6 +30,10 @@ function App() {
 
   const handleChangeSort = (sort: SortBy) => {
     setSorting(sort);
+  };
+
+  const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFilterCountry(event.currentTarget.value);
   };
 
   useEffect(() => {
@@ -78,67 +76,31 @@ function App() {
   }, [filteredUsers, sorting]);
 
   return (
-      <div
-        className="app"
-        style={{ display: 'flex', gap: '40px', flexDirection: 'column' }}
-      >
-        <Title order={1}>Gestión de Usuarios</Title>
-        {/* <h1>Prueba técnica</h1> */}
+    <div
+      className="app"
+      style={{ display: 'flex', gap: '40px', flexDirection: 'column' }}
+    >
+      <Title order={1}>Gestión de Usuarios</Title>
+      {/* <h1>Prueba técnica</h1> */}
 
-        <div>
-          <Stack mb="xl">
-            <Group justify="space-between" align="flex-end">
-              {/* Grupo de Acciones */}
-              <Group>
-                <Button
-                  variant={showColors ? 'filled' : 'light'}
-                  color="blue"
-                  onClick={toggleColors}
-                  leftSection={<IconColorPicker size={16} />}
-                >
-                  Colorear filas
-                </Button>
+      <div>
+        <FilterSortControls
+          sorting={sorting}
+          toggleColors={toggleColors}
+          showColors={showColors}
+          toggleSortByCountry={toggleSortByCountry}
+          handleReset={handleReset}
+          onChangeInput={handleChangeInput}
+        />
 
-                <Button
-                  variant={sorting === SortBy.COUNTRY ? 'filled' : 'light'}
-                  color="teal"
-                  onClick={toggleSortByCountry}
-                  leftSection={<IconArrowsSort size={16} />}
-                >
-                  {sorting === SortBy.COUNTRY
-                    ? 'No ordenar por país'
-                    : 'Ordenar por país'}
-                </Button>
-
-                <Button
-                  variant="outline"
-                  color="gray"
-                  onClick={handleReset}
-                  leftSection={<IconRefresh size={16} />}
-                >
-                  Resetear estado
-                </Button>
-              </Group>
-
-              {/* Filtro de búsqueda */}
-              <TextInput
-                placeholder="Filtra por país..."
-                leftSection={<IconSearch size={16} />}
-                onChange={(event) =>
-                  setFilterCountry(event.currentTarget.value)
-                }
-                style={{ flex: 1, maxWidth: '300px' }}
-              />
-            </Group>
-          </Stack>
-          <UsersList
-            users={sortedUsers}
-            showColors={showColors}
-            deleteUser={handleDelete}
-            changeSorting={handleChangeSort}
-          />
-        </div>
+        <UsersList
+          users={sortedUsers}
+          showColors={showColors}
+          deleteUser={handleDelete}
+          changeSorting={handleChangeSort}
+        />
       </div>
+    </div>
   );
 }
 
