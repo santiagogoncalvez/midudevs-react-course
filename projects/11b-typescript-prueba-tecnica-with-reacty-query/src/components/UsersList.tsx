@@ -3,7 +3,7 @@ import { SortBy, type Users } from '../types.d';
 import {
   Table,
   Avatar,
-  // Button,
+  Button,
   UnstyledButton,
   Group,
   Text,
@@ -19,7 +19,7 @@ interface Props {
 export function UsersList({
   users,
   showColors,
-  // deleteUser,
+  deleteUser,
   changeSorting,
 }: Props) {
   return (
@@ -63,7 +63,7 @@ export function UsersList({
             </UnstyledButton>
           </Table.Th>
 
-          {/* <Table.Th>Acciones</Table.Th> */}
+          <Table.Th>Acciones</Table.Th>
         </Table.Tr>
       </Table.Thead>
 
@@ -80,7 +80,7 @@ export function UsersList({
 
             <Table.Td align="left">{user.location.country}</Table.Td>
             
-            {/*
+            
             <Table.Td align="left">
                <Button
                 variant="light"
@@ -91,7 +91,7 @@ export function UsersList({
                 Borrar
               </Button>
             </Table.Td>
-            */}
+           
           </Table.Tr>
         ))}
       </Table.Tbody>

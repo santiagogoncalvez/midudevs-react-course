@@ -8,7 +8,7 @@ import FilterSortControls from './components/FilterSortControls';
 import Results from './components/Results';
 
 function App() {
-  const { isLoading, isError, users, refetch, fetchNextPage, hasNextPage } =
+  const { isLoading, isError, users, refetch, fetchNextPage, hasNextPage, deleteUser } =
     useUsers();
 
   const [showColors, setShowColors] = useState(false);
@@ -22,9 +22,10 @@ function App() {
       sorting === SortBy.NONE ? SortBy.COUNTRY : SortBy.NONE;
     setSorting(newSortingValue);
   };
-  // const handleDelete = (email: string) => {
-  //   console.log(email);
-  // };
+
+  const handleDelete = (email: string) => {
+    deleteUser(email);
+  };
 
   const handleReset = () => {
     void refetch();
@@ -72,7 +73,6 @@ function App() {
       style={{ display: 'flex', gap: '40px', flexDirection: 'column' }}
     >
       <Title order={1}>Gestión de Usuarios</Title>
-      {/* <h1>Prueba técnica</h1> */}
 
       <div>
         <FilterSortControls
@@ -91,7 +91,7 @@ function App() {
             <UsersList
               users={sortedUsers}
               showColors={showColors}
-              deleteUser={() => {}}
+              deleteUser={handleDelete}
               changeSorting={handleChangeSort}
             />
           )}
